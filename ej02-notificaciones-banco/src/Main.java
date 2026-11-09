@@ -2,15 +2,12 @@ public class Main {
     public static void main(String[] args) {
         ServicioNotificaciones servicio = new ServicioNotificaciones();
 
-        System.out.println("=== BancoPlata: notificaciones ===");
-        servicio.notificarTransferencia("SMS", "laura", 150000);
-        servicio.notificarTransferencia("EMAIL", "andres", 80000);
-        servicio.notificarCodigoSeguridad("PUSH", "sofia", "482913");
+        servicio.enviarNotificacion("SMS", "Juan", "Tu transferencia de $50.000 fue exitosa.");
+        servicio.enviarNotificacion("EMAIL", "Maria", "Recibiste un pago de $120.000.");
+        servicio.enviarNotificacion("PUSH", "Carlos", "Tu saldo ha cambiado.");
+        servicio.enviarNotificacion("WHATSAPP", "Ana", "Tu código de seguridad es 8492.");
 
-        // NUEVO REQUERIMIENTO: el banco quiere notificar por WhatsApp
-        servicio.notificarTransferencia("WHATSAPP", "camilo", 50000);
-
-        System.out.println();
-        System.out.println("ESPERADO -> la linea de WhatsApp debe aparecer, sin agregar otro 'else if'");
+        System.out.println("\nESPERADO: Notificaciones enviadas por SMS, EMAIL, PUSH y WHATSAPP sin bloques if/else.");
     }
 }
+
