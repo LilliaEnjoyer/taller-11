@@ -2,7 +2,6 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("--- Viajes Andinos: paquetes vendidos ---");
 
-        // p1: Paquete completo
         PaqueteViaje p1 = new PaqueteViaje.Builder("Cartagena", 4)
                 .conVuelo(true)
                 .conHotel("Decameron")
@@ -11,7 +10,6 @@ public class Main {
                 .conSeguroViaje(false)
                 .build();
 
-        // p2: Solo hotel + seguro, sin vuelo ni desayuno ni tour
         PaqueteViaje p2 = new PaqueteViaje.Builder("Villa de Leyva", 2)
                 .conHotel("Posada del Sol")
                 .conSeguroViaje(true)
@@ -20,7 +18,6 @@ public class Main {
         System.out.println(p1);
         System.out.println(p2);
 
-        // p3: Se le olvidó el destino -> Debe RECHAZARSE al construir
         try {
             PaqueteViaje p3 = new PaqueteViaje.Builder()
                     .conNoches(3)
@@ -30,8 +27,6 @@ public class Main {
         } catch (IllegalArgumentException e) {
             System.out.println("[RECHAZADO p3] " + e.getMessage());
         }
-
-        // p4: 0 noches -> Debe RECHAZARSE al construir
         try {
             PaqueteViaje p4 = new PaqueteViaje.Builder("San Andres", 0).build();
             System.out.println(p4);
